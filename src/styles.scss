@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+
+// always include only once per project
+@include mat-core();
+
+// import our custom theme
+
+
+// specify theme class eg: <body class="my-theme"> ... </body>
+.my-theme {
+  $my-theme-primary: mat-palette($mat-blue, 600);
+$my-theme-accent: mat-palette($mat-orange);
+$my-theme-warn: mat-palette($mat-orange);
+
+// create theme (use mat-dark-theme for themes with dark backgrounds)
+$my-theme: mat-light-theme(
+    $my-theme-primary,
+    $my-theme-accent,
+    $my-theme-warn
+);
+
+  // use our theme with angular-material-theme mixin
+  @include angular-material-theme($my-theme);
+}
